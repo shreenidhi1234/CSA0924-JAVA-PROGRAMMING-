@@ -1,0 +1,56 @@
+// Define a superclass
+class Vehicle {
+    String color;
+    String model;
+
+    // Constructor
+    public Vehicle(String color, String model) {
+        this.color = color;
+        this.model = model;
+    }
+
+    // Method
+    public void drive() {
+        System.out.println("The vehicle is driving.");
+    }
+}
+
+// Define a subclass inheriting from Vehicle
+class Car extends Vehicle {
+    int numDoors;
+
+    // Constructor
+    public Car(String color, String model, int numDoors) {
+        super(color, model);
+        this.numDoors = numDoors;
+    }
+
+    // Method specific to Car
+    public void honk() {
+        System.out.println("Beep beep!");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Create an object of the Car class
+        Car myCar = new Car("Red", "Toyota", 4);
+
+        // Access attributes and methods
+        System.out.println("Color: " + myCar.color);   // Output: Red
+        System.out.println("Model: " + myCar.model);   // Output: Toyota
+        System.out.println("Number of Doors: " + myCar.numDoors);  // Output: 4
+        myCar.drive();   // Output: The vehicle is driving.
+        myCar.honk();    // Output: Beep beep!
+
+        // Example of branching statement (if-else)
+        int speed = 60;
+        if (speed > 60) {
+            System.out.println("Speeding!");
+        } else if (speed < 60) {
+            System.out.println("Driving below speed limit.");
+        } else {
+            System.out.println("Driving at speed limit.");
+        }
+    }
+}
