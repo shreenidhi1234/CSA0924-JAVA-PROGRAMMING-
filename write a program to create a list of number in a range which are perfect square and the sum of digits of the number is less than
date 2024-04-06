@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class PerfectSquareWithSumOfDigits {
+    public static void main(String[] args) {
+        int startRange = 1; // Start of the range (inclusive)
+        int endRange = 100; // End of the range (inclusive)
+        int maxDigitSum = 10; // Maximum sum of digits allowed
+        
+        // Generate and print the list of numbers
+        List<Integer> result = findNumbers(startRange, endRange, maxDigitSum);
+        System.out.println("Perfect square numbers with sum of digits less than " + maxDigitSum + ":");
+        System.out.println(result);
+    }
+
+    public static List<Integer> findNumbers(int startRange, int endRange, int maxDigitSum) {
+        List<Integer> result = new ArrayList<>();
+
+        // Iterate through the range and check each number
+        for (int num = startRange; num <= endRange; num++) {
+            // Check if the number is a perfect square
+            double sqrt = Math.sqrt(num);
+            if (sqrt == Math.floor(sqrt)) {
+                // If the number is a perfect square, calculate the sum of its digits
+                int sum = calculateDigitSum(num);
+                // If the sum of digits is less than the specified value, add the number to the result list
+                if (sum < maxDigitSum) {
+                    result.add(num);
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public static int calculateDigitSum(int num) {
+        int sum = 0;
+        while (num != 0) {
+            sum += num % 10;
+            num /= 10;
+        }
+        return sum;
+    }
+}
+
