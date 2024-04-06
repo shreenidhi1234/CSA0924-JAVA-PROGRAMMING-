@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class NumberAndSquareArray {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the size of the array
+        System.out.print("Enter the size of the array: ");
+        int size = scanner.nextInt();
+
+        // Create the array
+        int[][] numberSquareArray = new int[size][2];
+
+        // Populate the array with numbers and their squares
+        for (int i = 0; i < size; i++) {
+            // Take input number from the user
+            System.out.print("Enter number " + (i + 1) + ": ");
+            int num = scanner.nextInt();
+
+            // Assign number and its square to the array
+            numberSquareArray[i][0] = num;
+            numberSquareArray[i][1] = num * num;
+        }
+
+        // Display the array
+        System.out.println("Number\tSquare");
+        for (int i = 0; i < size; i++) {
+            System.out.println(numberSquareArray[i][0] + "\t\t" + numberSquareArray[i][1]);
+        }
+
+        scanner.close();
+    }
+}
