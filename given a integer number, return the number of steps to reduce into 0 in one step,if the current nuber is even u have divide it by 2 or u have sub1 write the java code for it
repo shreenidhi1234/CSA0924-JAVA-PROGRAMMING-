@@ -1,0 +1,30 @@
+given a integer number, return the number of steps to reduce into 0 in one step,if the current nuber is even u have divide it by 2 or u have sub1
+wrie the java code for it
+
+public class StepsToReduceToOne {
+    public static void main(String[] args) {
+        // Test cases
+        System.out.println(numberOfSteps(14)); // Output: 6
+        System.out.println(numberOfSteps(8));  // Output: 4
+    }
+
+    public static int numberOfSteps(int num) {
+        int steps = 0;
+        
+        // Continue the loop until the number becomes 0
+        while (num != 0) {
+            // If the number is even, divide it by 2
+            if (num % 2 == 0) {
+                num /= 2;
+            } 
+            // If the number is odd, subtract 1
+            else {
+                num--;
+            }
+            steps++; // Increment the steps counter
+        }
+        
+        return steps;
+    }
+}
+
