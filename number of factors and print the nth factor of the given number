@@ -1,0 +1,49 @@
+import java.util.Scanner;
+public class FactorCountAndNthFactor {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        // Prompt the user to enter a number
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt();
+        // Calculate and print the number of factors
+        int factorCount = countFactors(number);
+        System.out.println("Number of factors of " + number + ": " + factorCount);
+        // Prompt the user to enter the index of the factor to find
+        System.out.print("Enter the index of the factor to find: ");
+        int nthFactorIndex = scanner.nextInt();
+        // Print the nth factor
+        int nthFactor = findNthFactor(number, nthFactorIndex);
+        if (nthFactor != -1) {
+            System.out.println("The " + nthFactorIndex + "th factor of " + number + " is: " + nthFactor);
+        } else {
+            System.out.println("The " + nthFactorIndex + "th factor of " + number + " does not exist.");
+        }
+        scanner.close();
+    }
+
+    // Function to count the number of factors of a given number
+    public static int countFactors(int num) {
+        int count = 0;
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // Function to find the nth factor of a given number
+    public static int findNthFactor(int num, int n) {
+        int count = 0;
+        for (int i = 1; i <= num; i++) {
+            if (num % i == 0) {
+                count++;
+                if (count == n) {
+                    return i;
+                }
+            }
+        }
+        return -1; // Return -1 if the nth factor does not exist
+    }
+}
+
