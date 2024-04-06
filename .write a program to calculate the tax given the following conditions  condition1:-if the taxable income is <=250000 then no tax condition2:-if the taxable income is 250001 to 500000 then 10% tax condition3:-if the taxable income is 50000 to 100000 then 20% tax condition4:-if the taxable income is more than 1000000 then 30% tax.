@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class TaxCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the taxable income
+        System.out.println("Enter the taxable income:");
+        double income = scanner.nextDouble();
+
+        // Calculate the tax
+        double tax = calculateTax(income);
+
+        // Display the tax amount
+        System.out.println("Tax to be paid: " + tax);
+
+        scanner.close();
+    }
+
+    // Function to calculate tax based on taxable income
+    public static double calculateTax(double income) {
+        if (income <= 250000) {
+            return 0; // No tax
+        } else if (income <= 500000) {
+            return (income - 250000) * 0.10; // 10% tax on income above 250000
+        } else if (income <= 1000000) {
+            return (250000 * 0.10) + (income - 500000) * 0.20; // 10% tax on first 250000, 20% tax on income above 500000
+        } else {
+            return (250000 * 0.10) + (500000 * 0.20) + (income - 1000000) * 0.30; // 10% tax on first 250000, 20% tax on next 500000, 30% tax on income above 1000000
+        }
+    }
+}
+
